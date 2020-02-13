@@ -1,0 +1,36 @@
+/* purgecss start ignore */
+@tailwind base;
+/* purgecss end ignore */
+
+@font-face {
+  font-family: GTHaptik;
+  font-weight: 400;
+  src: url(/fonts/GT-Haptik-Regular.woff) format('woff');
+}
+@font-face {
+  font-family: GTHaptik;
+  font-weight: 700;
+  src: url(/fonts/GT-Haptik-Bold.woff) format('woff');
+}
+
+h1 {
+  @apply text-5xl;
+  @apply font-bold;
+}
+h2 {
+  @apply text-4xl;
+  @apply font-bold;
+}
+h3 {
+  @apply text-3xl;
+  @apply font-bold;
+}
+a {
+  @apply text-blue-700;
+}
+
+/* purgecss start ignore */
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;

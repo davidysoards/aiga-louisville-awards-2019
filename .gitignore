@@ -1,0 +1,12 @@
+# npm
+/node_modules
+
+# build
+/dist
+/src/site/css
+
+# secrets
+.env
+
+# macOS
+.DS_Store

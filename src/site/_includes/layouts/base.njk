@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="AIGA Lou Awards 2019" />
+  <meta name="twitter:creator" content="@ninjasoards" />
+  <meta property="og:url" content="https://louisville.aiga.org/awards-2019" />
+  <meta property="og:title" content="Awards 2019" />
+  <meta property="og:description" content="{%- if description -%}{{ description }}{%- else -%}Online display for Louisville's AIGA Awards for 2019{%- endif -%}" />
+  <meta property="og:image" content='https://louisville.aiga.org/awards-2019/images/og-card.jpg' />
+  <title>{{ pageTitle }}</title>
+</head>
+  <body>
+    {%- include "components/_header.njk" %}
+    <main>
+      {{ content | safe }}
+    </main>
+    {%- include "components/_footer.njk" %}
+    {%- set js -%}
+      {%- include "js/main.js" %}
+    {%- endset -%}
+    {# <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> #}
+    <script>{{ js | jsmin | safe }}</script>
+  </body>
+</html>
