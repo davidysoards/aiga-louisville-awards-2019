@@ -8,7 +8,6 @@ function Gallery(gallery) {
   function openModal() {
     if (!modal.matches('.hidden')) return;
     modal.classList.remove('hidden');
-
     window.addEventListener('keyup', handleKeyUp);
     nextButton.addEventListener('click', showNextImage);
     prevButton.addEventListener('click', showPrevImage);
@@ -45,7 +44,6 @@ function Gallery(gallery) {
     modal.querySelector('.modalGroup').textContent = el.dataset.group;
     modal.querySelector('.modalCategory').textContent = el.dataset.category;
     modal.querySelector('.modalDesigners').textContent = el.dataset.designers;
-
     currentImage = el;
     openModal();
   }
@@ -55,14 +53,12 @@ function Gallery(gallery) {
       ? currentImage.closest('li').nextElementSibling.querySelector('img')
       : gallery.firstElementChild.querySelector('img');
     showImage(nextImg);
-    // showImage(currentImage.nextElementSibling || gallery.firstElementChild);
   }
   function showPrevImage() {
     const prevImg = currentImage.closest('li').previousElementSibling
       ? currentImage.closest('li').previousElementSibling.querySelector('img')
       : gallery.lastElementChild.querySelector('img');
     showImage(prevImg);
-    // showImage(currentImage.previousElementSibling || gallery.lastElementChild);
   }
 
   images.forEach(image =>

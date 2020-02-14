@@ -158,12 +158,14 @@ professional:
     group: Zone Catalog
     designers: Gregory Sheppard
     image: Call_Now_Promos_for_White_Reaper-Zone_Catalog.jpg
+    video: Video_Call_Now_Promos_for_White_Reaper-Zone_Catalog.mp4
 
   - title: National Stem Cell Foundation Animation
     category: Motion Graphics & Video
     group: Fieldtrip
     designers: Andrew Spalding | Fraser Ward | Kyle Jones | Meredith Wilkins | Jordan Mason
     image: National_Stem_Cell_Foundation_Animation-Fieldtrip.jpg
+    video: Video_National_Stem_Cell_Foundation_Animation-Fieldtrip.mp4
 
   - title: 3 Floyds Distilling Gins
     category: Packaging
@@ -280,35 +282,36 @@ professional:
     image: Mightily_Website-Mightily.jpg
 ---
 
-{%- macro card(url, level, img, title, group, category, designers) %}
-    <li class="card p-2 bg-white shadow-sm hover:shadow-lg transition-shadow duration-300">
-      {# <a href={{cloudinaryUrl}}/t_full-hd/awards-2019/{{level}}/{{img}}> #}
-        <img
-          src={{cloudinaryUrl}}/t_gallery_thumb/awards-2019/{{level}}/{{img}}
-          class="object-scale-down h-48 md:h-56 w-full mx-auto winnerImage"
-          alt="{{title}}"
-          title="{{title}}"
-          data-group="{{group}}"
-          data-category="{{category}}"
-          data-designers="{{designers}}"
-          data-full="{{cloudinaryUrl}}/t_full-hd/awards-2019/{{level}}/{{img}}"
-          tabindex="0"
-        />
-      {# </a> #}
-    </li>
+{# card component #}
+{%- macro card(url, level, img, title, group, designers, category, video) %}
+<li class="card p-2 bg-white shadow-sm hover:shadow-xl transition-shadow duration-300">
+  <img src={{cloudinaryUrl}}/t_gallery_thumb/awards-2019/{{level}}/{{img}}
+    class="object-scale-down h-48 md:h-56 w-full mx-auto winnerImage"
+    alt="{{title}}"
+    title="{{title}}"
+    data-full="{{cloudinaryUrl}}/t_full-hd/awards-2019/{{level}}/{{img}}"
+    data-video="{{video}}"
+    data-group="{{group}}"
+    data-designers="{{designers}}"
+    data-category="{{category}}"
+    tabindex="0"
+  />
+</li>
 {%- endmacro %}
 
+{# Professional section #}
 <section class="bg-gray-200">
   <div class="container px-4 py-16">
     <h2 class="mb-4">Professional</h2>
-    <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-1">
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-1">
       {%- for award in professional %}
-        {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.category, award.designers) }}
+        {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.designers, award.category, award.video) }}
       {%- endfor %}
     </ul>
   </div>
 </section>
 
+{# College section #}
 <section class="bg-gray-300">
   <div class="container px-4 py-16">
     <h2 class="mb-4">College</h2>
@@ -320,6 +323,7 @@ professional:
   </div>
 </section>
 
+{# High School Section #}
 <section class="bg-gray-200">
   <div class="container px-4 py-16">
     <h2 class="mb-4">High School</h2>
@@ -331,27 +335,29 @@ professional:
   </div>
 </section>
 
-<div class="modal fixed inset-0 z-50 bg-overlay hidden flex justify-center align-center">
-  <div class="py-6 md:max-w-screen-xl flex bg-white overflow-auto">
-    <button aria-label="Previous Photo" class="prev m-2">
-      <img src="/images/chevron-left.svg" width="36" alt="previous">
+{# Display Full Image Modal #}
+<div class="modal fixed inset-0 z-50 bg-overlay hidden flex justify-center items-center sm:items-stretch">
+  <div class="py-6 m-4 md:max-w-screen-xl flex bg-white overflow-auto">
+    <button aria-label="Previous Photo" class="prev m-1 w-12">
+      <img src="images/chevron-left.svg" width="36" alt="previous">
     </button>
     <figure>
       <img
-        src="https://res.cloudinary.com/aigalou/image/upload/t_full-hd/awards-2019/professional/Americana_Center_Poster_Campaign-Doe.jpg"
+        src="images/placeholder.png"
         class="modalImage"
       />
       <figcaption class="my-4">
-        <span class="text-lg md:text-2xl leading-none modalTitle">Americana Center Poster Campaign</span>
-        <div>
-          <span class="md:text-xl font-bold uppercase modalGroup">Doe-Anderson</span>
-          <span class="md:text-xl modalCategory">Advertising</span>
+        <span class="text-lg md:text-2xl leading-none modalTitle"></span>
+        <div class="md:text-xl">
+          <span class="font-bold uppercase modalGroup"></span>
+          |
+          <span class="modalCategory"></span>
         </div>
-        <p class="text-sm modalDesigners">Tim Ofcacek • Art Director | David Vawter • Chief Creative Officer | Natalie Weis • Copywriter</p>
+        <p class="text-sm modalDesigners"></p>
       </figcaption>
     </figure>
-    <button class="next m-2" aria-label="Next Photo">
-      <img src="/images/chevron-left.svg" class="transform rotate-180" width="36" alt="previous">
+    <button class="next m-1 w-12" aria-label="Next Photo">
+      <img src="images/chevron-left.svg" class="transform rotate-180" width="36" alt="previous">
     </button>
   </div>
 </div>

@@ -29,6 +29,10 @@ a {
   @apply text-blue-700;
 }
 
+.h-coming-soon {
+  height: calc(100vh - 136px);
+}
+
 /* purgecss start ignore */
 @tailwind components;
 /* purgecss end ignore */
