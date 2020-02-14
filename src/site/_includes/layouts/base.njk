@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="{{"/css/styles.css" | url }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="AIGA Lou Awards 2019" />
   <meta name="twitter:creator" content="@ninjasoards" />
@@ -11,6 +11,18 @@
   <meta property="og:title" content="Awards 2019" />
   <meta property="og:description" content="{%- if description -%}{{ description }}{%- else -%}Online display for Louisville's AIGA Awards for 2019{%- endif -%}" />
   <meta property="og:image" content='https://louisville.aiga.org/awards-show-2019/images/og-card.jpg' />
+  <style>
+    @font-face {
+      font-family: GTHaptik;
+      font-weight: 400;
+      src: url({{"/fonts/GT-Haptik-Regular.woff" | url }}) format('woff');
+    }
+    @font-face {
+      font-family: GTHaptik;
+      font-weight: 700;
+      src: url({{"/fonts/GT-Haptik-Bold.woff" | url }}) format('woff');
+    }
+  </style>
   <title>{{ pageTitle }}</title>
 </head>
   <body>

@@ -2,17 +2,6 @@
 @tailwind base;
 /* purgecss end ignore */
 
-@font-face {
-  font-family: GTHaptik;
-  font-weight: 400;
-  src: url(/fonts/GT-Haptik-Regular.woff) format('woff');
-}
-@font-face {
-  font-family: GTHaptik;
-  font-weight: 700;
-  src: url(/fonts/GT-Haptik-Bold.woff) format('woff');
-}
-
 h1 {
   @apply text-5xl;
   @apply font-bold;

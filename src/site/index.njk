@@ -274,12 +274,14 @@ professional:
     group: Mightily
     designers: Jason Lee | Kaytie White | Rankin Mapother | Jennifer Hail | Tony Feltner | Rich Barber
     image: Hosparus_Health_Website-Mightily.jpg
+    link: https://hosparushealth.org/
 
   - title: Mightily Website
     category: Web, App & Multimedia Design
     group: Mightily
     designers: Jason Lee | Lance Swan | Rankin Mapother | Rich Barber
     image: Mightily_Website-Mightily.jpg
+    link: https://mightily.com/
 
 judges:
   - title: Call Now! Promos for White Reaper
@@ -303,8 +305,8 @@ judges:
 ---
 
 {# card component #}
-{%- macro card(url, level, img, title, group, designers, category, video) %}
-<li class="card p-2 bg-white shadow-sm hover:shadow-xl transition-shadow duration-300">
+{%- macro card(url, level, img, title, group, designers, category, video, link) %}
+<li class="card p-2 bg-white shadow-sm hover:shadow-xl hover:scale-105 transition-shadow transition-transform transform duration-200">
   <img width="1280" src={{cloudinaryUrl}}/c_fit,h_640,q_auto,w_640/awards-2019/{{level}}/{{img}}
     class="object-scale-down h-48 md:h-56 w-full mx-auto winnerImage"
     alt="{{title}}"
@@ -314,6 +316,7 @@ judges:
     data-group="{{group}}"
     data-designers="{{designers}}"
     data-category="{{category}}"
+    data-link="{{link}}"
     tabindex="0"
   />
 </li>
@@ -337,7 +340,7 @@ judges:
     <h2 class="mb-4">Professional</h2>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-1">
       {%- for award in professional %}
-        {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.designers, award.category, award.video) }}
+        {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.designers, award.category, award.video, award.link) }}
       {%- endfor %}
     </ul>
   </div>
@@ -369,13 +372,13 @@ judges:
 
 {# Display Full Image Modal #}
 <div class="modal fixed inset-0 z-50 bg-overlay hidden flex justify-center items-center sm:items-stretch">
-  <div class="py-6 m-4 md:max-w-screen-xl flex bg-white overflow-auto">
-    <button aria-label="Previous Photo" class="prev m-1 w-12">
-      <img src="images/chevron-left.svg" width="36" alt="previous">
+  <div class="py-6 sm:m-4 md:max-w-screen-xl flex bg-white overflow-auto">
+    <button aria-label="Previous Photo" class="prev m-2 w-12">
+      <img src="{{"/images/chevron-left.svg" | url }}" width="36" alt="previous">
     </button>
     <figure>
       <img
-        src="images/placeholder.png"
+        src="{{"images/placeholder.png" | url }}"
         class="modalImage"
       />
       <video class="modalVideo" width="1280" src="" controls></video>
@@ -389,8 +392,8 @@ judges:
         <p class="text-sm modalDesigners"></p>
       </figcaption>
     </figure>
-    <button class="next m-1 w-12" aria-label="Next Photo">
-      <img src="images/chevron-left.svg" class="transform rotate-180" width="36" alt="previous">
+    <button class="next m-2 w-12" aria-label="Next Photo">
+      <img src="{{"/images/chevron-left.svg" | url }}" class="transform rotate-180" width="36" alt="previous">
     </button>
   </div>
 </div>

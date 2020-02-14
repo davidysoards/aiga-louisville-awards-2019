@@ -38,7 +38,7 @@ function Gallery(gallery) {
       return;
     }
     // update the modal with this info
-    console.log(el.dataset.full, el.dataset.video);
+    // console.log(el.dataset.full, el.dataset.video);
     if (el.dataset.video) {
       modal.querySelector('.modalVideo').src = el.dataset.video;
       modal.querySelector('.modalImage').classList.add('hidden');

@@ -25,13 +25,18 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/site/fonts');
   eleventyConfig.addPassthroughCopy('./src/site/images');
   eleventyConfig.addPassthroughCopy('./src/site/css');
+  eleventyConfig.addPassthroughCopy('./src/site/*.png');
+  eleventyConfig.addPassthroughCopy('./src/site/*.ico');
+  eleventyConfig.addPassthroughCopy('./src/site/*.webmanifest');
 
   return {
-    pathPrefix: '/',
+    pathPrefix: '/awards-show-2019/',
     dir: {
       input: 'src/site',
       output: 'dist',
     },
     templateFormats: ['njk', 'md'],
+    htmlTemplateEngine: 'njk',
+    markdownTemplateEngine: 'njk',
   };
 };
