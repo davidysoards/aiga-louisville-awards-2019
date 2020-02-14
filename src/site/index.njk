@@ -1,7 +1,7 @@
 ---
 layout: default
 pageTitle: AIGA Lou Awards 2019
-cloudinaryUrl: https://res.cloudinary.com/aigalou/image/upload
+cloudinaryUrl: https://res.cloudinary.com/aigalou
 highSchool:
   - title: Free Art
     group: Lexington Christian Academy
@@ -56,7 +56,7 @@ college:
 
   - title: Major Tarot
     group: IU Bloomington
-    designers: Skye Spalding • Designer & Illustrator,
+    designers: Skye Spalding • Designer & Illustrator
     image: Major_Tarot-Spalding.jpg
 
   - title: Makuron Cookie Kit - Packaging & Identity
@@ -158,14 +158,14 @@ professional:
     group: Zone Catalog
     designers: Gregory Sheppard
     image: Call_Now_Promos_for_White_Reaper-Zone_Catalog.jpg
-    video: Video_Call_Now_Promos_for_White_Reaper-Zone_Catalog.mp4
+    video: https://res.cloudinary.com/aigalou/video/upload/awards-2019/professional/Video_Call_Now_Promos_for_White_Reaper-Zone_Catalog.mp4
 
   - title: National Stem Cell Foundation Animation
     category: Motion Graphics & Video
     group: Fieldtrip
     designers: Andrew Spalding | Fraser Ward | Kyle Jones | Meredith Wilkins | Jordan Mason
     image: National_Stem_Cell_Foundation_Animation-Fieldtrip.jpg
-    video: Video_National_Stem_Cell_Foundation_Animation-Fieldtrip.mp4
+    video: https://res.cloudinary.com/aigalou/video/upload/w_1280,f_auto/awards-2019/professional/Video_National_Stem_Cell_Foundation_Animation-Fieldtrip.mp4
 
   - title: 3 Floyds Distilling Gins
     category: Packaging
@@ -280,16 +280,36 @@ professional:
     group: Mightily
     designers: Jason Lee | Lance Swan | Rankin Mapother | Rich Barber
     image: Mightily_Website-Mightily.jpg
+
+judges:
+  - title: Call Now! Promos for White Reaper
+    category: Motion Graphics & Video
+    group: Zone Catalog
+    designers: Gregory Sheppard
+    image: Call_Now_Promos_for_White_Reaper-Zone_Catalog.jpg
+    video: https://res.cloudinary.com/aigalou/video/upload/awards-2019/professional/Video_Call_Now_Promos_for_White_Reaper-Zone_Catalog.mp4
+
+  - title: AIGA Louisville Design Week Circular
+    category: Posters & Flyers
+    group: Zimmer-Design
+    designers: Nathan Weaver • Illustrator | Designer & Associate Creative Director | Jim Zimmer • Creative Director | Jessica Zimmer • Design Director
+    image: AIGA_Louisville_Design_Week_Circular-Zimmer.jpg
+
+  - title: Western Middle School for the Arts Identity
+    category: Identities, Logos & Branding
+    group: Bullhorn
+    designers: Adam Kuhn • Creative Director | Cat Wentworth • Graphic Designer
+    image: Western_Middle_School_for_the_Arts_Identity-Bullhorn.jpg
 ---
 
 {# card component #}
 {%- macro card(url, level, img, title, group, designers, category, video) %}
 <li class="card p-2 bg-white shadow-sm hover:shadow-xl transition-shadow duration-300">
-  <img src={{cloudinaryUrl}}/t_gallery_thumb/awards-2019/{{level}}/{{img}}
+  <img width="1280" src={{cloudinaryUrl}}/c_fit,h_640,q_auto,w_640/awards-2019/{{level}}/{{img}}
     class="object-scale-down h-48 md:h-56 w-full mx-auto winnerImage"
     alt="{{title}}"
     title="{{title}}"
-    data-full="{{cloudinaryUrl}}/t_full-hd/awards-2019/{{level}}/{{img}}"
+    data-full="{{cloudinaryUrl}}/image/upload/c_fit,h_1440,q_auto:best,w_1440/awards-2019/{{level}}/{{img}}"
     data-video="{{video}}"
     data-group="{{group}}"
     data-designers="{{designers}}"
@@ -299,8 +319,20 @@ professional:
 </li>
 {%- endmacro %}
 
-{# Professional section #}
+{# Judges Choice Selections #}
 <section class="bg-gray-200">
+  <div class="container px-4 py-16">
+    <h2 class="mb-4">Judge's Choice</h2>
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-4">
+      {%- for award in judges %}
+        {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.designers, award.category, award.video) }}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{# Professional section #}
+<section class="bg-gray-300">
   <div class="container px-4 py-16">
     <h2 class="mb-4">Professional</h2>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-1">
@@ -312,7 +344,7 @@ professional:
 </section>
 
 {# College section #}
-<section class="bg-gray-300">
+<section class="bg-gray-200">
   <div class="container px-4 py-16">
     <h2 class="mb-4">College</h2>
     <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-2">
@@ -324,7 +356,7 @@ professional:
 </section>
 
 {# High School Section #}
-<section class="bg-gray-200">
+<section class="bg-gray-300">
   <div class="container px-4 py-16">
     <h2 class="mb-4">High School</h2>
     <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-3">
@@ -346,6 +378,7 @@ professional:
         src="images/placeholder.png"
         class="modalImage"
       />
+      <video class="modalVideo" width="1280" src="" controls></video>
       <figcaption class="my-4">
         <span class="text-lg md:text-2xl leading-none modalTitle"></span>
         <div class="md:text-xl">
