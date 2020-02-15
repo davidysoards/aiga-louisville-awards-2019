@@ -3,12 +3,12 @@
   "short_name": "Awards 2019",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/awards-show-2019/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/awards-show-2019/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

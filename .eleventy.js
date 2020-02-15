@@ -27,7 +27,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/site/css');
   eleventyConfig.addPassthroughCopy('./src/site/*.png');
   eleventyConfig.addPassthroughCopy('./src/site/*.ico');
-  eleventyConfig.addPassthroughCopy('./src/site/*.webmanifest');
 
   return {
     pathPrefix: '/awards-show-2019/',

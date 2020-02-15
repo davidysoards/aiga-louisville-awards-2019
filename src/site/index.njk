@@ -14,6 +14,11 @@ highSchool:
     image: Mountaintop_Removal-Milo_Golding.jpg
 
 college:
+  - title: "Aaron's Rent-to-Own Rebrand"
+    group: University of Louisville
+    designers: Logan Wells
+    image: Aarons_Rebrand-Logan_Wells.jpg
+
   - title: Canna Brand Identity
     group:
     designers: Sean Riley
@@ -102,13 +107,13 @@ professional:
   - title: Russell Neighborhood Gateway Mural
     category: Environmental Design & Wayfinding
     group: VIA Studio
-    designers: Ashley Trommler
+    designers:
     image: Russell_Neighborhood_Gateway_Mural-Via.jpg
 
   - title: Arden Indoor Smoker Branding
     category: Identities, Logos & Branding
     group: VIA Studio
-    designers: Ashley Trommler
+    designers:
     image: Arden_Indoor_Smoker_Branding-Via.jpg
 
   - title: Hectare's CBD Innovations Brand Identity
@@ -120,7 +125,7 @@ professional:
   - title: Kentucky Performing Arts Rebrand
     category: Identities, Logos & Branding
     group: VIA Studio
-    designers: Ashley Trommler
+    designers:
     image: Kentucky_Performing_Arts_Rebrand-Via.jpg
 
   - title: Lexington Theatre Company Identity
@@ -132,7 +137,7 @@ professional:
   - title: Marcus Paint Brand Identity
     category: Identities, Logos & Branding
     group: VIA Studio
-    designers: Ashley Trommler
+    designers:
     image: Marcus_Paint_Brand_Identity-Via.jpg
 
   - title: The Great Speling Bee
@@ -284,12 +289,11 @@ professional:
     link: https://mightily.com/
 
 judges:
-  - title: Call Now! Promos for White Reaper
-    category: Motion Graphics & Video
-    group: Zone Catalog
-    designers: Gregory Sheppard
-    image: Call_Now_Promos_for_White_Reaper-Zone_Catalog.jpg
-    video: https://res.cloudinary.com/aigalou/video/upload/awards-2019/professional/Video_Call_Now_Promos_for_White_Reaper-Zone_Catalog.mp4
+  - title: Western Middle School for the Arts Identity
+    category: Identities, Logos & Branding
+    group: Bullhorn
+    designers: Adam Kuhn • Creative Director | Cat Wentworth • Graphic Designer
+    image: Western_Middle_School_for_the_Arts_Identity-Bullhorn.jpg
 
   - title: AIGA Louisville Design Week Circular
     category: Posters & Flyers
@@ -297,11 +301,12 @@ judges:
     designers: Nathan Weaver • Illustrator | Designer & Associate Creative Director | Jim Zimmer • Creative Director | Jessica Zimmer • Design Director
     image: AIGA_Louisville_Design_Week_Circular-Zimmer.jpg
 
-  - title: Western Middle School for the Arts Identity
-    category: Identities, Logos & Branding
-    group: Bullhorn
-    designers: Adam Kuhn • Creative Director | Cat Wentworth • Graphic Designer
-    image: Western_Middle_School_for_the_Arts_Identity-Bullhorn.jpg
+  - title: Call Now! Promos for White Reaper
+    category: Motion Graphics & Video
+    group: Zone Catalog
+    designers: Gregory Sheppard
+    image: Call_Now_Promos_for_White_Reaper-Zone_Catalog.jpg
+    video: https://res.cloudinary.com/aigalou/video/upload/awards-2019/professional/Video_Call_Now_Promos_for_White_Reaper-Zone_Catalog.mp4
 ---
 
 {# card component #}
@@ -324,7 +329,7 @@ judges:
 
 {# Judges Choice Selections #}
 <section class="bg-gray-200">
-  <div class="container px-4 py-16">
+  <div class="container px-4 pt-8 md:pt-16 pb-16">
     <h2 class="mb-4">Judge's Choice</h2>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-4">
       {%- for award in judges %}
@@ -336,7 +341,7 @@ judges:
 
 {# Professional section #}
 <section class="bg-gray-300">
-  <div class="container px-4 py-16">
+  <div class="container px-4 pt-8 md:pt-16 pb-16">
     <h2 class="mb-4">Professional</h2>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-1">
       {%- for award in professional %}
@@ -348,7 +353,7 @@ judges:
 
 {# College section #}
 <section class="bg-gray-200">
-  <div class="container px-4 py-16">
+  <div class="container px-4 pt-8 md:pt-16 pb-16">
     <h2 class="mb-4">College</h2>
     <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-2">
       {%- for award in college %}
@@ -358,9 +363,9 @@ judges:
   </div>
 </section>
 
-{# High School Section #}
+{# High School section #}
 <section class="bg-gray-300">
-  <div class="container px-4 py-16">
+  <div class="container px-4 pt-8 md:pt-16 pb-16">
     <h2 class="mb-4">High School</h2>
     <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-3">
       {%- for award in highSchool %}
@@ -372,7 +377,7 @@ judges:
 
 {# Display Full Image Modal #}
 <div class="modal fixed inset-0 z-50 bg-overlay hidden flex justify-center items-center sm:items-stretch">
-  <div class="py-6 sm:m-4 md:max-w-screen-xl flex bg-white overflow-auto">
+  <div class="py-6 sm:m-4 sm:mb-16 lg:mb-4 md:max-w-screen-xl flex bg-white overflow-auto">
     <button aria-label="Previous Photo" class="prev m-2 w-12">
       <img src="{{"/images/chevron-left.svg" | url }}" width="36" alt="previous">
     </button>
@@ -393,7 +398,7 @@ judges:
       </figcaption>
     </figure>
     <button class="next m-2 w-12" aria-label="Next Photo">
-      <img src="{{"/images/chevron-left.svg" | url }}" class="transform rotate-180" width="36" alt="previous">
+      <img src="{{"/images/chevron-right.svg" | url }}" width="36" alt="previous">
     </button>
   </div>
 </div>
