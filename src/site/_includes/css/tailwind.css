@@ -2,6 +2,10 @@
 @tailwind base;
 /* purgecss end ignore */
 
+body {
+  @apply text-gray-800;
+}
+
 h1 {
   @apply text-5xl;
   @apply font-bold;
@@ -11,15 +15,19 @@ h2 {
   @apply font-bold;
 }
 h3 {
-  @apply text-3xl;
+  @apply text-2xl;
   @apply font-bold;
 }
 a {
-  @apply text-blue-700;
+  @apply text-purple-700;
 }
 
 .h-coming-soon {
   height: calc(100vh - 136px);
+}
+
+.modal[aria-hidden='true'] {
+  display: none;
 }
 
 /* purgecss start ignore */

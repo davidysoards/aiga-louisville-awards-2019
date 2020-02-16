@@ -2,6 +2,13 @@
 layout: default
 pageTitle: AIGA Lou Awards 2019
 cloudinaryUrl: https://res.cloudinary.com/aigalou
+
+leaderName: Pip Pullen
+leaderText: Lorem ipsum dolor sit amet consectetur adipisicing elit. At, exercitationem, impedit illo unde ex modi expedita fuga ipsa maiores maxime quia a velit quis, dicta perferendis consequuntur necessitatibus esse atque?
+leaderImage: image/upload/pip-pullen.jpg
+leaderWebsite: mightily.com
+leaderUrl: https://mightily.com
+
 highSchool:
   - title: Free Art
     group: Lexington Christian Academy
@@ -280,6 +287,7 @@ professional:
     designers: Jason Lee | Kaytie White | Rankin Mapother | Jennifer Hail | Tony Feltner | Rich Barber
     image: Hosparus_Health_Website-Mightily.jpg
     link: https://hosparushealth.org/
+    linktext: hosparushealth.org
 
   - title: Mightily Website
     category: Web, App & Multimedia Design
@@ -287,6 +295,7 @@ professional:
     designers: Jason Lee | Lance Swan | Rankin Mapother | Rich Barber
     image: Mightily_Website-Mightily.jpg
     link: https://mightily.com/
+    linktext: mightily.com
 
 judges:
   - title: Western Middle School for the Arts Identity
@@ -310,7 +319,7 @@ judges:
 ---
 
 {# card component #}
-{%- macro card(url, level, img, title, group, designers, category, video, link) %}
+{%- macro card(url, level, img, title, group, designers, category, video, link, linktext) %}
 <li class="card p-2 bg-white shadow-sm hover:shadow-xl hover:scale-105 transition-shadow transition-transform transform duration-200">
   <img width="1280" src={{cloudinaryUrl}}/c_fit,h_640,q_auto,w_640/awards-2019/{{level}}/{{img}}
     class="object-scale-down h-48 md:h-56 w-full mx-auto winnerImage"
@@ -322,6 +331,7 @@ judges:
     data-designers="{{designers}}"
     data-category="{{category}}"
     data-link="{{link}}"
+    data-linktext="{{linktext}}"
     tabindex="0"
   />
 </li>
@@ -330,7 +340,7 @@ judges:
 {# Judges Choice Selections #}
 <section class="bg-gray-200">
   <div class="container px-4 pt-8 md:pt-16 pb-16">
-    <h2 class="mb-4">Judge's Choice</h2>
+    <h2 class="mb-4">🏅 Judge's Choice</h2>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-4">
       {%- for award in judges %}
         {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.designers, award.category, award.video) }}
@@ -339,45 +349,85 @@ judges:
   </div>
 </section>
 
-{# Professional section #}
+{# Community Lead section #}
 <section class="bg-gray-300">
+  <div class="container px-4 pt-8 md:pt-16 pb-16 max-w-screen-md">
+    <h2 class="mb-4 leading-none md:leading-normal">🎖 Community Leader Award</h2>
+    <div class="sm:grid grid-cols-3 gap-6">
+      <img class="mb-4 w-full max-w-lg col-span-1" src="{{cloudinaryUrl}}/{{leaderImage}}" alt="Pip Pullen">
+      <div class="col-span-2">
+        <h3>{{leaderName}}</h3>
+        <p>{{leaderText}}</p>
+        <a href="{{leaderUrl}}">{{leaderWebsite}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Professional section #}
+<section class="bg-gray-200">
   <div class="container px-4 pt-8 md:pt-16 pb-16">
-    <h2 class="mb-4">Professional</h2>
+    <h2 class="mb-4">🏆 Professional</h2>
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 gallery-1">
       {%- for award in professional %}
-        {{ card(cloudinaryUrl, 'professional', award.image, award.title, award.group, award.designers, award.category, award.video, award.link) }}
+        {{ card(
+          cloudinaryUrl,
+          'professional',
+          award.image,
+          award.title,
+          award.group,
+          award.designers,
+          award.category,
+          award.video,
+          award.link,
+          award.linktext
+        ) }}
       {%- endfor %}
     </ul>
   </div>
 </section>
 
 {# College section #}
-<section class="bg-gray-200">
+<section class="bg-gray-300">
   <div class="container px-4 pt-8 md:pt-16 pb-16">
-    <h2 class="mb-4">College</h2>
+    <h2 class="mb-4">🏆 College</h2>
     <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-2">
       {%- for award in college %}
-        {{ card(cloudinaryUrl, 'college', award.image, award.title, award.group, award.designers) }}
+        {{ card(
+          cloudinaryUrl,
+          'college',
+          award.image,
+          award.title,
+          award.group,
+          award.designers
+        ) }}
       {%- endfor %}
     </ul>
   </div>
 </section>
 
 {# High School section #}
-<section class="bg-gray-300">
+<section class="bg-gray-200">
   <div class="container px-4 pt-8 md:pt-16 pb-16">
-    <h2 class="mb-4">High School</h2>
+    <h2 class="mb-4">🏆 High School</h2>
     <ul class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 gallery-3">
       {%- for award in highSchool %}
-        {{ card(cloudinaryUrl, 'high-school', award.image, award.title, award.group, award.designers) }}
+        {{ card(
+          cloudinaryUrl,
+          'high-school',
+          award.image,
+          award.title,
+          award.group,
+          award.designers
+        ) }}
       {%- endfor %}
     </ul>
   </div>
 </section>
 
 {# Display Full Image Modal #}
-<div class="modal fixed inset-0 z-50 bg-overlay hidden flex justify-center items-center sm:items-stretch">
-  <div class="py-6 sm:m-4 sm:mb-16 lg:mb-4 md:max-w-screen-xl flex bg-white overflow-auto">
+<div class="modal fixed inset-0 z-50 bg-overlay hidden flex justify-center items-center sm:items-stretch" aria-hidden="true" tabindex="0">
+  <div class="py-4 sm:m-4 md:max-w-screen-xl flex bg-white overflow-auto">
     <button aria-label="Previous Photo" class="prev m-2 w-12">
       <img src="{{"/images/chevron-left.svg" | url }}" width="36" alt="previous">
     </button>
@@ -386,7 +436,7 @@ judges:
         src="{{"images/placeholder.png" | url }}"
         class="modalImage"
       />
-      <video class="modalVideo" width="1280" src="" controls></video>
+      <video class="modalVideo" width="1280" src="" controls tabindex="0"></video>
       <figcaption class="my-4">
         <span class="text-lg md:text-2xl leading-none modalTitle"></span>
         <div class="md:text-xl">
@@ -397,8 +447,13 @@ judges:
         <p class="text-sm modalDesigners"></p>
       </figcaption>
     </figure>
-    <button class="next m-2 w-12" aria-label="Next Photo">
-      <img src="{{"/images/chevron-right.svg" | url }}" width="36" alt="previous">
-    </button>
+    <div class="relative m-2 w-12 flex flex-col justify-center">
+      <button class="next" aria-label="Next Photo">
+        <img src="{{"/images/chevron-right.svg" | url }}" width="36" alt="previous">
+      </button>
+      <button class="close absolute top-0 -mt-3" aria-label="close">
+        <img src="{{"/images/times.svg" | url }}" width="36" alt="close">
+      </button>
+    </div>
   </div>
 </div>
