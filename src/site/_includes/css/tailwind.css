@@ -18,6 +18,9 @@ h3 {
   @apply text-2xl;
   @apply font-bold;
 }
+p {
+  @apply mb-3;
+}
 a {
   @apply text-purple-700;
 }
